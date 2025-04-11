@@ -14,7 +14,7 @@ function Header({ changeValue, changeHandle }: HeaderProps) {
           onChange={changeHandle}
           type="text"
           className=" rounded-full bg-white px-4 py-1.5"
-          placeholder="Search Pokemon"
+          placeholder="Search Pokémon"
         />
         <img src="./public/switch.png" alt="switch" />
       </div>
