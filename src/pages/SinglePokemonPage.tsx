@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { PokeCard } from "../components/PokeCard";
+import Header from "../components/Header";
 
 export default function SinglePokemonPage() {
   const { id } = useParams();
@@ -24,6 +25,7 @@ export default function SinglePokemonPage() {
 
   return (
     <div>
+      <Header />
       <img src={pokemon.sprites.front_default} alt={pokemon.name} />
       <img src={pokemon.sprites.front_shiny} alt={pokemon.name} />
       <h2>{pokemon.name.toUpperCase()}</h2>

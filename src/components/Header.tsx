@@ -1,6 +1,6 @@
 type HeaderProps = {
-  changeValue: string;
-  changeHandle: React.ChangeEventHandler<HTMLInputElement> | undefined;
+  changeValue?: string;
+  changeHandle?: React.ChangeEventHandler<HTMLInputElement> | undefined;
 };
 
 function Header({ changeValue, changeHandle }: HeaderProps) {
