@@ -9,7 +9,7 @@ type SinglePokemon = {
   url: string;
 };
 
-function HomePage() {
+export default function HomePage() {
   const [pokeData, setPokeData] = useState<SinglePokemon[]>([]);
 
   const handleChange: React.ChangeEventHandler = (e) => {
@@ -26,7 +26,7 @@ function HomePage() {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center gap-2 p-2">
+    <div className="flex flex-col items-center justify-center gap-2 p-2 rounded">
       {" "}
       <Header changeValue={""} changeHandle={handleChange} />
       <div className="flex items-start justify-center h-160 overflow-x-hidden overflow-y-scroll  w-full  ">
@@ -38,7 +38,6 @@ function HomePage() {
           ))}
         </div>
       </div>
-
     </div>
   );
 }

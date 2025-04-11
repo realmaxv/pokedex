@@ -80,7 +80,7 @@ function PokeCard({ id }: PokeCardProps) {
                   ? "#0" + single.id
                   : "#" + single.id}
               </p>
-              <p>{single.name}</p>
+              <p>{single.name.toUpperCase()}</p>
             </div>
           </div>
         </div>
