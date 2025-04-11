@@ -1,0 +1,10 @@
+{
+  "name": "Pokédex-SC",
+  "short_name": "pokéDex",
+  "theme_color": "#60d5ef",
+  "background_color": "#60d5ef",
+  "display": "fullScreen",
+  "orientation": "portrait",
+  "scope": "/",
+  "start_url": "/index.html"
+}
