@@ -1,8 +1,9 @@
 import { Outlet } from "react-router";
+import Header from "../components/Header";
 
 function RootLayout() {
   return (
-    <main className="bg-[#CCDADD] h-screen w-full">
+    <main className="">
       <Outlet />
     </main>
   );

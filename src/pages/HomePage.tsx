@@ -13,6 +13,7 @@ type SinglePokemon = {
 export default function HomePage() {
   const [pokeData, setPokeData] = useState<SinglePokemon[]>([]);
   const [searchInput, setSearchInput] = useState("");
+  const [nightDay, setNightDay] = useState(true);
 
   useEffect(() => {
     fetch("https://pokeapi.co/api/v2/pokemon/?limit=151")
@@ -30,10 +31,22 @@ export default function HomePage() {
     setSearchInput(e.target.value);
   };
 
+  const nightToggle: React.MouseEventHandler<HTMLButtonElement> = (e) => {
+    e.preventDefault();
+    setNightDay((nightDay) => !nightDay);
+  };
   return (
-    <div className="flex flex-col items-center justify-center gap-2 p-2 rounded">
+    <div
+      className={`flex h-screen flex-col items-center justify-center gap-2 p-2 rounded ${
+        nightDay ? "bg-[#60d5ef]" : "bg-stone-800"
+      }`}
+    >
       {" "}
-      <Header changeValue={searchInput} changeHandle={handleChange} />
+      <Header
+        changeValue={searchInput}
+        changeHandle={handleChange}
+        nightToggle={nightToggle}
+      />
       <div className="flex items-start justify-center h-160 overflow-x-hidden overflow-y-scroll  w-full  ">
         <div className=" grid  grid-cols-2 gap-6 ">
           {pokeData

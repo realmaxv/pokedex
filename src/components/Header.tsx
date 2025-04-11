@@ -1,9 +1,10 @@
 type HeaderProps = {
   changeValue?: string;
   changeHandle?: React.ChangeEventHandler<HTMLInputElement> | undefined;
+  nightToggle?: React.MouseEventHandler<HTMLButtonElement> | undefined;
 };
 
-function Header({ changeValue, changeHandle }: HeaderProps) {
+function Header({ changeValue, changeHandle, nightToggle }: HeaderProps) {
   return (
     <header className="flex flex-col p-4 items-center justify-center gap-6 w-full">
       <img src="./public/image.png" alt="poke_img" />
@@ -16,7 +17,9 @@ function Header({ changeValue, changeHandle }: HeaderProps) {
           className=" rounded-full bg-white px-4 py-1.5"
           placeholder="Search Pokemon"
         />
-        <img src="./public/switch.png" alt="switch" />
+        <button onClick={nightToggle}>
+          <img src="./public/switch.png" alt="switch" />
+        </button>
       </div>
     </header>
   );
