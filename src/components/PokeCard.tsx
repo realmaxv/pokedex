@@ -8,6 +8,7 @@ export type Sprites = {
   front_female: null;
   front_shiny: string;
   front_shiny_female: null;
+  animated?: Sprites;
 };
 export type PokeCard = {
   abilities: Ability[];
@@ -23,6 +24,7 @@ export type PokeCard = {
   species: Species;
   sprites: Sprites;
   weight: number;
+  types: string[];
 };
 
 export type Ability = {
@@ -66,7 +68,7 @@ function PokeCard({ id }: PokeCardProps) {
           <div>
             {" "}
             <img
-              className="absolute h-41 left-0 bottom-5 w-full"
+              className="absolute left-0 bottom-5 w-full"
               src={single.sprites.front_shiny}
               alt={single.name}
             />

@@ -11,13 +11,13 @@ type SinglePokemon = {
 
 export default function HomePage() {
   const [pokeData, setPokeData] = useState<SinglePokemon[]>([]);
-
+  const [filteredPokemon, setFilteredPokeon] = useState<SinglePokemon[]>([]);
   const handleChange: React.ChangeEventHandler = (e) => {
     e.preventDefault();
   };
 
   useEffect(() => {
-    fetch("https://pokeapi.co/api/v2/pokemon/?limit=150")
+    fetch("https://pokeapi.co/api/v2/pokemon/?limit=151")
       .then((res) => res.json())
       .then((data) => {
         console.log(data.results);
@@ -32,7 +32,7 @@ export default function HomePage() {
       <div className="flex items-start justify-center h-160 overflow-x-hidden overflow-y-scroll  w-full  ">
         <div className=" grid  grid-cols-2 gap-6 ">
           {pokeData.map((pokemon, index) => (
-            <Link to={pokemon.url}>
+            <Link to={`/singlepokemon/${index + 1}`}>
               <PokeCard id={index} key={index} />
             </Link>
           ))}
