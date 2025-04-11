@@ -2,7 +2,7 @@ import { Outlet } from "react-router";
 
 function RootLayout() {
   return (
-    <main>
+    <main className="bg-[#CCDADD] h-screen w-full">
       <Outlet />
     </main>
   );
