@@ -15,10 +15,10 @@ function Header({
     <header className="flex flex-col p-4 items-center justify-center gap-6 w-full">
       <button className="hover:cursor-pointer" onClick={popupMenu}>
         {" "}
-        <img src="./public/image.png" alt="poke_img" />
+        <img src="/image.png" alt="poke_img" />
       </button>
       <div className="flex items-center justify-evenly w-full gap-4 ">
-        <img src="./public/menu.png" alt="menu" />
+        <img src="/menu.png" alt="menu" />
         <input
           value={changeValue}
           onChange={changeHandle}
@@ -27,7 +27,7 @@ function Header({
           placeholder="Search Pokémon"
         />
         <button className="hover:cursor-pointer" onClick={nightToggle}>
-          <img src="./public/switch.png" alt="switch" />
+          <img src="/switch.png" alt="switch" />
         </button>
       </div>
     </header>

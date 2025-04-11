@@ -82,14 +82,14 @@ function PokeCard({ id, name }: PokeCardProps) {
           </div>
           <div className="w-40 relative top-25 rounded-4xl overflow-y-clip bg-white ">
             <div className="text-center">
-              <p className="bg-white">
+              <p className="bg-white font-medium">
                 {single.id <= 9
                   ? "#00" + single.id
                   : single.id < 100
                   ? "#0" + single.id
                   : "#" + single.id}
               </p>
-              <p>{name}</p>
+              <p className="font-bold ">{name.toUpperCase()}</p>
             </div>
           </div>
         </div>
