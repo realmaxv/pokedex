@@ -1,74 +1,44 @@
-import PokemonOverviewCard from "../components/PokemonOverviewCard";
-// import { useParams } from "react-router";
+import { useEffect, useState } from "react";
+import Header from "../components/Header";
 
-//// muss die id noch fertig einbauen
+import PokeCard from "../components/PokeCard";
+import { Link } from "react-router";
 
-export type Pokemon = {
-  id: number; //// proforma
+type SinglePokemon = {
   name: string;
   url: string;
-  imageUrl: string; //// das hab ich hier nur proforma drin
 };
 
-export default function HomePage() {
+function HomePage() {
+  const [pokeData, setPokeData] = useState<SinglePokemon[]>([]);
+
+  const handleChange: React.ChangeEventHandler = (e) => {
+    e.preventDefault();
+  };
+
+  useEffect(() => {
+    fetch("https://pokeapi.co/api/v2/pokemon/?limit=150")
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data.results);
+        setPokeData(data.results);
+      });
+  }, []);
+
   return (
-    <div className="mx-auto max-w-[400px] mt-4 grid grid-cols-2 grid-template-columns: repeat(2, minmax(200px, 1fr)) gap-5 justify-content-center">
-      {examplePokemons.map((pokemon) => (
-        <PokemonOverviewCard pokemon={pokemon} key={pokemon.id} />
-      ))}
+    <div className="flex flex-col items-center justify-center gap-2 p-2">
+      {" "}
+      <Header changeValue={""} changeHandle={handleChange} />
+      <div className="flex items-start justify-center h-160 overflow-x-hidden overflow-y-scroll  w-full  ">
+        <div className=" grid  grid-cols-2 gap-6 ">
+          {pokeData.map((pokemon, index) => (
+            <Link to={pokemon.url}>
+              <PokeCard id={index} key={index} />
+            </Link>
+          ))}
+        </div>
+      </div>
+
     </div>
   );
 }
-
-//// auch nur vorübergehend
-const examplePokemons = [
-  {
-    id: 1,
-    name: "bulbasaur",
-    url: "https://pokeapi.co/api/v2/pokemon/1/",
-    imageUrl:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
-  },
-  {
-    id: 2,
-    name: "ivysaur",
-    url: "https://pokeapi.co/api/v2/pokemon/2/",
-    imageUrl:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png",
-  },
-  {
-    id: 3,
-    name: "ivysaur",
-    url: "https://pokeapi.co/api/v2/pokemon/3/",
-    imageUrl:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png",
-  },
-  {
-    id: 4,
-    name: "ivysaur",
-    url: "https://pokeapi.co/api/v2/pokemon/4/",
-    imageUrl:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png",
-  },
-  {
-    id: 5,
-    name: "ivysaur",
-    url: "https://pokeapi.co/api/v2/pokemon/5/",
-    imageUrl:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/5.png",
-  },
-  {
-    id: 6,
-    name: "ivysaur",
-    url: "https://pokeapi.co/api/v2/pokemon/6/",
-    imageUrl:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png",
-  },
-  {
-    id: 7,
-    name: "ivysaur",
-    url: "https://pokeapi.co/api/v2/pokemon/7/",
-    imageUrl:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png",
-  },
-];
