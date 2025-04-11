@@ -37,7 +37,7 @@ export default function HomePage() {
   };
   return (
     <div
-      className={`flex h-screen flex-col items-center justify-center gap-2 p-2 rounded ${
+      className={`flex  flex-col items-center justify-center gap-2 h-screen md:h-fit p-2 md:rounded-2xl ${
         nightDay ? "bg-[#60d5ef]" : "bg-stone-800"
       }`}
     >
@@ -47,7 +47,10 @@ export default function HomePage() {
         changeHandle={handleChange}
         nightToggle={nightToggle}
       />
-      <div className="flex items-start justify-center h-160 overflow-x-hidden overflow-y-scroll  w-full  ">
+      <div
+        className="flex items-start justify-center h-160 rounded-2xl
+      p-1 overflow-x-hidden overflow-y-scroll  w-full  "
+      >
         <div className=" grid  grid-cols-2 gap-6 ">
           {pokeData
             .filter((pokemon) =>
