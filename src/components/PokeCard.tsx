@@ -50,13 +50,14 @@ export type Cries = {
 
 type PokeCardProps = {
   id: number;
+  name: string;
 };
 
-function PokeCard({ id }: PokeCardProps) {
+function PokeCard({ id, name }: PokeCardProps) {
   const [single, setSingle] = useState<PokeCard | null>(null);
 
   useEffect(() => {
-    fetch(`https://pokeapi.co/api/v2/pokemon/${id + 1}`)
+    fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -88,7 +89,7 @@ function PokeCard({ id }: PokeCardProps) {
                   ? "#0" + single.id
                   : "#" + single.id}
               </p>
-              <p>{single.name.toUpperCase()}</p>
+              <p>{name}</p>
             </div>
           </div>
         </div>

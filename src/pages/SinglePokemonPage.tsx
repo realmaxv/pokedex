@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router";
 import { PokeCard } from "../components/PokeCard";
+import Header from "../components/Header";
 
 export default function SinglePokemonPage() {
   const { id } = useParams();
@@ -35,6 +36,7 @@ export default function SinglePokemonPage() {
     : pokemon.sprites.front_default;
 
   return (
+
     <div className="max-w-md mx-auto content-center bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl p-6">
       {/* Pokémon Bild mit Animation */}
       <div className="flex justify-center mb-6">
@@ -61,6 +63,7 @@ export default function SinglePokemonPage() {
 
       {/* Pokémon Typen */}
       <div className="flex justify-center  gap-3 mb-6">
+
         {pokemon.types.map((singleType, index) => (
           <button
             key={index}

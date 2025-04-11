@@ -1,5 +1,3 @@
-import { Pokemon } from "../pages/HomePage";
-
 const PokemonOverviewCard = ({ pokemon }: { pokemon: Pokemon }) => {
   return (
     <div
