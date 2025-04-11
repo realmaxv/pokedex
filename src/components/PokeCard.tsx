@@ -24,7 +24,13 @@ export type PokeCard = {
   species: Species;
   sprites: Sprites;
   weight: number;
-  types: string[];
+  types: {
+    slot: number;
+    type: {
+      name: string;
+      url: string;
+    };
+  }[];
 };
 
 export type Ability = {

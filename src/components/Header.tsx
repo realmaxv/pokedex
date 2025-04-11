@@ -24,7 +24,7 @@ function Header({
           onChange={changeHandle}
           type="text"
           className=" rounded-full bg-white px-4 py-1.5"
-          placeholder="Search Pokemon"
+          placeholder="Search Pokémon"
         />
         <button className="hover:cursor-pointer" onClick={nightToggle}>
           <img src="./public/switch.png" alt="switch" />
