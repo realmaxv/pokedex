@@ -48,8 +48,7 @@ export default function SinglePokemonPage() {
       }`}
     >
       <HeaderSingle nightToggle={nightToggle} />
-      <div className="flex items-center justify-center flex-col rounded-xl shadow-md  md:max-w-2xl p-6">
-        {/* Pokémon Bild mit Animation */}
+      <div className="flex items-center justify-center flex-col rounded-xl  md:max-w-2xl p-6">
         <div className="flex justify-center mb-6">
           <img
             src={currentSprite}
@@ -59,10 +58,8 @@ export default function SinglePokemonPage() {
           />
         </div>
 
-        {/* Unsichtbarer Audio-Player */}
         <audio ref={audioRef} src={pokemon.cries.legacy} />
 
-        {/* Pokémon Name und ID */}
         <div className="text-center mb-6">
           <h2
             className={`text-3xl font-bold mb-1 ${
@@ -71,12 +68,14 @@ export default function SinglePokemonPage() {
           >
             {pokemon.name.toUpperCase()}
           </h2>
-          <p className="text-lg text-gray-500 font-medium">
+          <p
+            className={`text-lg font-medium ${
+              nightDay ? "text-gray-500" : "text-stone-50"
+            }`}
+          >
             #{pokemon.id.toString().padStart(3, "0")}
           </p>
         </div>
-
-        {/* Pokémon Typen */}
         <div className="flex justify-center  gap-3 mb-6">
           {pokemon.types.map((singleType, index) => (
             <button
@@ -123,10 +122,12 @@ export default function SinglePokemonPage() {
             </button>
           ))}
         </div>
-
-        {/* Optional: Gewicht */}
         {pokemon.weight && (
-          <p className="text-center text-gray-600">
+          <p
+            className={`text-center ${
+              nightDay ? "text-gray-600" : "text-stone-50"
+            }`}
+          >
             Weight: {(pokemon.weight / 10).toFixed(1)} kg
           </p>
         )}
